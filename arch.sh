@@ -2,11 +2,7 @@
  
 #clear tty 
 clear
-  
-#partitioning
- cfdisk
-
-EOF
+ 
 #formatting
 mkfs.fat -F32 /dev/sda1
 mkswap /dev/sda2
