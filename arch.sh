@@ -36,3 +36,6 @@ echo arch >> /etc/hostname
 ### Root password
 passwd
 EOF
+
+
+# LOL i give up for now
