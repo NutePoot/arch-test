@@ -13,3 +13,22 @@ mount /dev/sda3 /mnt
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
 swapon /dev/sda2
+
+#Fstab
+genfstab -U /mnt >> /mnt/etc/fstab
+
+#Chroot
+arch-chroot /mnt
+
+#Time Zone
+ln -sf /usr/share/zoneinfo/Austrlia/Melbourne /etc/localtime
+hwclock --systohc
+
+#Localization
+echo LANG=en_US.UTF-8 >> /etc/locale.conf
+
+#Network configuration
+echo arch >> /etc/hostname
+
+#Root password
+passwd
