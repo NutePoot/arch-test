@@ -1,37 +1,38 @@
 #!/bin/bash
  
-# clear tty 
+### clear tty 
 clear
  
-# formatting
+### formatting
 mkfs.fat -F32 /dev/sda1
 mkswap /dev/sda2
 mkfs.ext4 /dev/sda3
 
-# mounting
+### mounting
 mount /dev/sda3 /mnt
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
 swapon /dev/sda2
 
-# Installation
+### Installation
 pacstrap /mnt base base-devel linux linux-firmware
 
-# Fstab
+### Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
 
-# Chroot
+### Chroot
 arch-chroot /mnt
 
-# Time Zone
+### Time Zone
 ln -sf /usr/share/zoneinfo/Austrlia/Melbourne /etc/localtime
 hwclock --systohc
 
-# Localization
+### Localization
 echo LANG=en_US.UTF-8 >> /etc/locale.conf
 
-# Network configuration
+### Network configuration
 echo arch >> /etc/hostname
 
-# Root password
+### Root password
 passwd
+EOF
