@@ -14,6 +14,9 @@ mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
 swapon /dev/sda2
 
+#Installation
+pacstrap /mnt base base-devel linux linux-firmware
+
 #Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
 
