@@ -20,6 +20,7 @@ pacstrap /mnt base base-devel linux linux-firmware
 ### Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
 
+#doesn't work from here
 ### Chroot
 arch-chroot /mnt
 
